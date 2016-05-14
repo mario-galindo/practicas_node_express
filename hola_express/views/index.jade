@@ -1,0 +1,26 @@
+html
+  head
+    title Mi Primera Pagina con Express
+  body
+    //Este es un comentario
+    -var arreglo = [1,2,3,4,5]
+    -for (var i = 0; i < arreglo.length; i++)
+      <!--p!= "<h1>" + arreglo[i] + "</h1>"-->
+      <!--p Hola #{arreglo[i]+1}-->
+    if true
+      p.
+        Hola haz click en este link #[a(href="Codigo Facilito") este link] por favor
+    each item in arreglo
+      p= item
+      case item
+        when 1
+          p el item era 1
+        when 2
+          p el item era 2
+        when 3
+          p el item era 3
+        when 4
+          p el item era 4
+        default
+          p el item no era nada fuckk
+      
