@@ -1,6 +1,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var User = require("./models/user").User;
+var session = require("express-session");
+var router_app = require("./routes_apps");
+var session_middleware = require("./middlewares/session")
+
 var app = express();
 
 //Para Servir rutas estaticas
@@ -10,21 +14,33 @@ app.use("/public",express.static('public'));
 app.use(bodyParser.json());     //Para peticiones aplication/json
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.use(session({
+    secret:"123byuhbsdah12ub",
+    resave:false,
+    saveUninitialized:false
+}));
+
 //Motor de Vistas
 app.set("view engine","jade");
 
 app.get("/",function(req,res){
+  console.log(req.session.user_id);
   res.render("index");
 })
 
-app.get("/login",function(req,res){
+app.get("/signup",function(req,res){
 
   User.find(function(err,doc){
     console.log(doc);
-    res.render("login");
+    res.render("signup");
   });
 
 })
+
+app.get("/login",function(req,res){
+    res.render("login");
+})
+
 
 app.post("/users",function(req,res){
 
@@ -44,5 +60,20 @@ app.post("/users",function(req,res){
   });
 
 })
+
+
+app.post("/sessions",function(req,res){
+    User.findOne({email:req.body.email, password:req.body.password},function(err,doc){
+
+        //res.send("Se encontro usuario");
+        req.session.user_id = doc._id;
+        res.redirect("app");
+
+    })
+})
+
+
+app.use("/app",session_middleware);
+app.use("/app",router_app);
 
 app.listen(3000);
