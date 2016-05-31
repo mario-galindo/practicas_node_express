@@ -1,10 +1,17 @@
 doctype html
-head
-  meta(charset="utf-8")
-  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", media="screen", title="no title", charset="utf-8")
-  script(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
-  link(rel="stylesheet", href="public/css/app.css")
+html(lang="es")
+  head
+    title FotoFacilito
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", media="screen", title="no title", charset="utf-8")
+    script(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    link(rel="stylesheet", href="public/css/app.css")
 
-  title FotoFacilito
-body
-  block contenido
+  body
+    nav(class="large-padding black white-text")
+      ul
+        li
+          a(href="/app") Inicio
+        li
+          a(href="/app/imagenes") Mis Imagenes
+    block contenido

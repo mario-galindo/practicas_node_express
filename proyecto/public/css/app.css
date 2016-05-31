@@ -13,3 +13,43 @@
 .top-space{
   margin-top: 1.5em;
 }
+
+.large-padding{
+  padding: 10px 15px;
+}
+
+.black{
+  background-color: #222;
+}
+
+.white-text{
+  color:white;
+}
+
+nav li{
+  display: inline-block;
+  margin-right: 1em;
+  font-size: 1.5em;
+}
+
+nav{
+  text-align: right;
+}
+
+nav li a {
+  color: #fff;
+}
+
+nav li a:hover {
+  font-weight:bold;
+  color: #fff;
+}
+
+.white{
+  background-color: white;
+}
+
+.border{
+  border: solid 1px #eee;
+}
+
